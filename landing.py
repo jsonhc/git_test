@@ -29,7 +29,7 @@
 ['hello', 'world']
 '''
 
-#初始化用户列表，和所用户，将用户和密码保存到用户字典中，锁定用户保存到锁列表中
+#初始化用户列表，和锁用户，将用户和密码保存到用户字典中，锁定用户保存到锁列表中
 user_list = {}
 lock_user = []
 
@@ -53,7 +53,7 @@ with open(r'D:\study\project\day1\user.txt','r') as f1:
         user_list[user] = password
 
 
-#将锁用户的用户报错在一个list中
+#将锁用户的用户保存在一个list中
 with open(r'D:\study\project\day1\lock.txt','r') as f2:
     for i in f2.readlines():
         user = i.strip()
