@@ -7,6 +7,16 @@ from
  group by tablespace_name) b
 where a.tablespace_name=b.tablespace_name
 
+#或者：
+select a.tablespace_name,a.total_bytes/1024/ 1024 "total MB",(a.total_bytes-b.free_bytes)/1024 /1024 "used MB"
+,b.free_bytes/ 1024/1024 "free MB",round(((a.total_bytes-b.free_bytes)/a.total_bytes)*100 ,2
+) "percent_used"
+from 
+(select tablespace_name, sum(bytes) total_bytes from dba_data_files group by tablespace_name) a,
+(select tablespace_name, sum(bytes) free_bytes from dba_free_space
+ group by tablespace_name) b
+where a.tablespace_name=b.tablespace_name
+
 
 # 以下是拆分上面的sql
 SQL> select TABLESPACE_NAME,sum(bytes) as total_bytes from dba_data_files  group by TABLESPACE_NAME;
