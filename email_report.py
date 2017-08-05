@@ -2,9 +2,9 @@
 import smtplib
 from email.mime.text import MIMEText
 
-from_mail = "json_hc@163.com"
-to_mail = "346165580@qq.com"
-mail_passwd = "HHq123456"
+from_mail = "xxxx@163.com"
+to_mail = "xxxx@qq.com"
+mail_passwd = "xxxx"
 
 content = "this is the first python email"
 subject = "mail test"
